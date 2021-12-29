@@ -14,21 +14,57 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2"],
+    states=["user", "start", "overview", "search",
+            "Festival", "intro", "custom", "video"],
     transitions=[
         {
             "trigger": "advance",
-            "source": "user",
-            "dest": "state1",
-            "conditions": "is_going_to_state1",
+            "source": ["start", "Festival"],
+            "dest": "overview",
+            "conditions": "is_going_to_overview",
         },
         {
             "trigger": "advance",
-            "source": "user",
-            "dest": "state2",
-            "conditions": "is_going_to_state2",
+            "source": ["start", "Festival"],
+            "dest": "search",
+            "conditions": "is_going_to_search",
         },
-        {"trigger": "go_back", "source": ["state1", "state2"], "dest": "user"},
+        {
+            "trigger": "advance",
+            "source": ["overview", "search", "intro", "custom", "video"],
+            "dest": "Festival",
+            "conditions": "is_going_to_Festival",
+        },
+        # {
+        #     "trigger": "advance",
+        #     "source": "search",
+        #     "dest": "Festival",
+        #     "conditions": "is_going_to_Festival",
+        # },
+        {
+            "trigger": "advance",
+            "source": "Festival",
+            "dest": "intro",
+            "conditions": "is_going_to_intro",
+        },
+        {
+            "trigger": "advance",
+            "source": "Festival",
+            "dest": "custom",
+            "conditions": "is_going_to_custom",
+        },
+        {
+            "trigger": "advance",
+            "source": "Festival",
+            "dest": "video",
+            "conditions": "is_going_to_video",
+        },
+        {
+            "trigger": "advance", 
+            "source": ["user","overview", "search"], 
+            "dest": "start",
+            "conditions": "is_going_to_start",
+        },
     ],
     initial="user",
     auto_transitions=False,
@@ -104,7 +140,17 @@ def webhook_handler():
         print(f"REQUEST BODY: \n{body}")
         response = machine.advance(event)
         if response == False:
-            send_text_message(event.reply_token, "Not Entering any State")
+            #send_text_message(event.reply_token, "Not Entering any State")
+            if machine.state == "user":
+                send_text_message(event.reply_token, "請輸入「start」開始", None)
+            elif machine.state == "start":
+                send_text_message(event.reply_token, "請輸入「總覽」或「查詢」", None)
+            elif machine.state == "overview":
+                send_text_message(event.reply_token, "無此節日或指令", None)
+            elif machine.state == "search":
+                send_text_message(event.reply_token, "無法查詢到相應節日，請重新輸入並確認名稱、日期或格式是否有誤", None)
+            else :
+                send_text_message(event.reply_token, "無效的指令，請重新輸入", None)
 
     return "OK"
 
