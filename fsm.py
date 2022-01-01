@@ -3,8 +3,8 @@ from transitions.extensions import GraphMachine
 from utils import send_text_message, send_button_message, send_carousel_message
 from linebot.models import URITemplateAction, MessageTemplateAction, ImageCarouselColumn, TextSendMessage
 
-from bs4 import BeautifulSoup
-import requests
+# from bs4 import BeautifulSoup
+# import requests
 fest = ""
 pre = -1
 cur = -1
