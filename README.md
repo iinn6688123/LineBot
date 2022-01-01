@@ -1,3 +1,28 @@
+# 台灣傳統節日 Taiwan Traditional Festival
+
+## 成果展示與說明
+### 開始
+![1](https://user-images.githubusercontent.com/92714385/147851258-9eb33411-48e4-4f9e-837c-e3c12cb0f5d1.jpg)
+### 節日總覽
+![2](https://user-images.githubusercontent.com/92714385/147851264-a4c6f37e-17db-416f-b45a-c601bb0f7f0a.jpg)
+### 輸入節日名稱 => 顯示對應節日相關操作
+![3](https://user-images.githubusercontent.com/92714385/147851271-2135761b-b12f-4554-8cdc-d7a270d5482a.jpg)
+### 節日介紹
+![4](https://user-images.githubusercontent.com/92714385/147851272-e6185151-6ada-4eb9-88c0-d25897ce0f33.jpg)
+### 節日習俗
+![5](https://user-images.githubusercontent.com/92714385/147851273-49d6e657-8449-434b-9be9-80ae6a272804.jpg)
+### 節日相關影片
+![6](https://user-images.githubusercontent.com/92714385/147851277-dca666ad-ff62-479d-ad20-48ee152e3af7.jpg)
+### 節日查詢
+![7](https://user-images.githubusercontent.com/92714385/147851280-b1d21b7b-8da6-460c-84e3-52acd51cced9.jpg)
+### 輸入節日日期 => 顯示對應節日相關操作
+![8](https://user-images.githubusercontent.com/92714385/147851283-87a96785-a5be-4f74-8fbc-0a6396b7d4f0.jpg)
+
+
+## My FSM
+![fsm](https://user-images.githubusercontent.com/92714385/147851127-1db7c7fe-370a-422d-83b8-7c51e8a0c935.png)
+
+
 # TOC Project 2020
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/dc7fa47fcd809b99d087/maintainability)](https://codeclimate.com/github/NCKU-CCS/TOC-Project-2020/maintainability)
